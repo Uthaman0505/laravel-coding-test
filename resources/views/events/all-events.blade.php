@@ -16,8 +16,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header" style="display: flex; justify-content: space-between">
-                            All Events <a href="/add-post" class="btn btn-success">Add New Event</a>
+                        <div class="card-header font-weight-bold" style="display: flex; justify-content: space-between">
+                            All Events <a href="/add-event" class="btn btn-success">Add New Event</a>
                         </div>
                         <div class="card-body">
                             <table class="table table-striped">
@@ -35,7 +35,7 @@
                                             <td>{{ $item->slug }}</td>
                                             <td>
                                                 <a href="/events/{{ $item->id }}" class="btn btn-info">Details</a>
-                                                <a href="/edit-post/{{ $item->id }}"
+                                                <a href="/events/{{ $item->id }}/edit"
                                                     class="btn btn-warning">Edit</a>
                                                 <a href="/delete-post/{{ $item->id }}"
                                                     class="btn btn-danger">Delete</a>

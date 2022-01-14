@@ -14,31 +14,30 @@
     <section style="padding-top: 60px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6 offset-md-3">
                     <div class="card">
-                        <div class="card-header bg-warning text-center font-weight-bold">
-                            Event Details
+                        <div class="card-header bg-primary text-center font-weight-bold">
+                            Edit Event
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form action="{{ route('update.event') }}" method="POST">
+                                @method('PUT')
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $event->id }}">
                                 <div class="form-group">
-                                    <label for="title">Event Name</label>
-                                    <input type="text" name="title" class="form-control" value="{{ $event->name }}">
+                                    <label for="name">Event Name</label>
+                                    <input type="text" name="name" class="form-control" value="{{ $event->name }}">
                                 </div>
-                                <div class="form-group">
-                                    <label for="title">Event Slug</label>
-                                    <input type="text" name="title" class="form-control" value="{{ $event->slug }}">
-                                </div>
+                                <button type="submit" class="btn btn-warning">Update Event</button>
                             </form>
                         </div>
-
                         <a href="/" class="btn btn-info">Back</a>
-
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

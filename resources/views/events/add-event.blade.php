@@ -14,21 +14,19 @@
     <section style="padding-top: 60px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6 offset-md-3">
                     <div class="card">
-                        <div class="card-header bg-warning text-center font-weight-bold">
-                            Event Details
+                        <div class="card-header text-center font-weight-bold" style="background-color: #e2c30e">
+                            Add Event
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form action="{{ route('create.event') }}" method="POST">
+                                @csrf
                                 <div class="form-group">
-                                    <label for="title">Event Name</label>
-                                    <input type="text" name="title" class="form-control" value="{{ $event->name }}">
+                                    <label for="name">Event Name</label>
+                                    <input type="text" name="name" class="form-control" placeholder="Enter Your Event">
                                 </div>
-                                <div class="form-group">
-                                    <label for="title">Event Slug</label>
-                                    <input type="text" name="title" class="form-control" value="{{ $event->slug }}">
-                                </div>
+                                <button type="submit" class="btn btn-success" style="position: center">Add Event</button>
                             </form>
                         </div>
 
@@ -39,6 +37,7 @@
             </div>
         </div>
     </section>
+
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">

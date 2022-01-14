@@ -67,4 +67,31 @@ class EventController extends Controller
         $event = Event::where('id', $id)->first();
         return view('events.single-event', compact('event'));
     }
+
+    public function addEventView()
+    {
+        return view('events.add-event');
+    }
+
+    public function createEvent(Request $request)
+    {
+        $event = new Event();
+        $event->name = $request->name;
+        $event->save();
+        return redirect('/');
+    }
+
+    public function editEvent($id)
+    {
+        $event = Event::find($id);
+        return view('events.edit-event', compact('event'));
+    }
+
+    public function updateEvent(Request $request)
+    {
+        $event = Event::find($request->id);
+        $event->name = $request->name;
+        $event->save();
+        return redirect('/');
+    }
 }
