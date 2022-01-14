@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\EventMail;
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Http;
 
 class EventController extends Controller
 {
@@ -78,6 +81,12 @@ class EventController extends Controller
         $event = new Event();
         $event->name = $request->name;
         $event->save();
+        if ($event) {
+            $details = [
+                'eventName' => "New Event created with name -> $request->name"
+            ];
+            Mail::to("uthaman.niutecs007@gmail.com")->send(new EventMail($details));
+        }
         return redirect('/');
     }
 
@@ -93,5 +102,11 @@ class EventController extends Controller
         $event->name = $request->name;
         $event->save();
         return redirect('/');
+    }
+
+    public function getAllPost()
+    {
+        $response = Http::get('https://jsonplaceholder.typicode.com/posts')->json();
+        return $response;
     }
 }
