@@ -37,8 +37,8 @@
                                                 <a href="/events/{{ $item->id }}" class="btn btn-info">Details</a>
                                                 <a href="/events/{{ $item->id }}/edit"
                                                     class="btn btn-warning">Edit</a>
-                                                <a href="/delete-post/{{ $item->id }}"
-                                                    class="btn btn-danger">Delete</a>
+                                                <a href="/delete-event/{{ $item->id }}" class="btn btn-danger">
+                                                    Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
