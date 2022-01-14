@@ -55,4 +55,16 @@ class EventController extends Controller
             return "The Event is Not Exits!";
         }
     }
+
+    public function allEventsView()
+    {
+        $events = Event::all();
+        return view('events.all-events', compact('events'));
+    }
+
+    public function getSingleEvent($id)
+    {
+        $event = Event::where('id', $id)->first();
+        return view('events.single-event', compact('event'));
+    }
 }
