@@ -109,11 +109,12 @@ class EventController extends Controller
         $response = Http::get('https://jsonplaceholder.typicode.com/posts')->json();
         return $response;
     }
-    
+
     public function delete($id)
     {
         $event = Event::find($id);
         $event->delete();
+        session()->flash('message', 'Event been deleted!');
         return redirect('/');
     }
 }
