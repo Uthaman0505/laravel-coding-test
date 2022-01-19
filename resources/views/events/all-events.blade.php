@@ -20,30 +20,39 @@
                             All Events <a href="/add-event" class="btn btn-success">Add New Event</a>
                         </div>
                         <div class="card-body">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr class="text-center">
-                                        <th>Event Name</th>
-                                        <th>Event Slug</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($events as $item)
+                            @if ($events->count() > 0)
+                                <table class="table table-striped">
+                                    <thead>
                                         <tr class="text-center">
-                                            <td>{{ $item->name }}</td>
-                                            <td>{{ $item->slug }}</td>
-                                            <td>
-                                                <a href="/events/{{ $item->id }}" class="btn btn-info">Details</a>
-                                                <a href="/events/{{ $item->id }}/edit"
-                                                    class="btn btn-warning">Edit</a>
-                                                <a href="/delete-event/{{ $item->id }}" class="btn btn-danger">
-                                                    Delete</a>
-                                            </td>
+                                            <th>Event Name</th>
+                                            <th>Event Slug</th>
+                                            <th>Actions</th>
                                         </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($events as $item)
+                                            <tr class="text-center">
+                                                <td>{{ $item->name }}</td>
+                                                <td>{{ $item->slug }}</td>
+                                                <td>
+                                                    <a href="/events/{{ $item->id }}"
+                                                        class="btn btn-info">Details</a>
+                                                    <a href="/events/{{ $item->id }}/edit"
+                                                        class="btn btn-warning">Edit</a>
+                                                    <a href="/delete-event/{{ $item->id }}" class="btn btn-danger">
+                                                        Delete</a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            @else
+                                <div class="text-center">
+                                    <span>
+                                        You have No Event to be display, Please add One!
+                                    </span>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
