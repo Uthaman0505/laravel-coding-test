@@ -20,6 +20,9 @@
                             All Events <a href="/add-event" class="btn btn-success">Add New Event</a>
                         </div>
                         <div class="card-body">
+                            @if (Session::has('message'))
+                                <div class="alert alert-success">{{ Session::get('message') }}</div>
+                            @endif
                             @if ($events->count() > 0)
                                 <table class="table table-striped">
                                     <thead>
@@ -53,6 +56,7 @@
                                     </span>
                                 </div>
                             @endif
+
                         </div>
                     </div>
                 </div>
