@@ -22,7 +22,9 @@ class DatabaseSeeder extends Seeder
             DB::table('events')->insert([
                 'id' => $faker->uuid(),
                 'name' => $name,
-                'slug' => Str::slug($name, '-')
+                'slug' => Str::slug($name, '-'),
+                'created_at' => $faker->dateTimeBetween('-30 days', '+30 days'),
+                'updated_at' => $faker->dateTimeBetween('-30 days', '+30 days')
             ]);
         }
     }

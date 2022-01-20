@@ -24,7 +24,8 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="name">Event Name</label>
-                                    <input type="text" name="name" class="form-control" placeholder="Enter Your Event">
+                                    <input type="text" name="name" class="form-control" placeholder="Enter Your Event"
+                                        required>
                                 </div>
                                 <button type="submit" class="btn btn-success" style="position: center">Add Event</button>
                             </form>
