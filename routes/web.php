@@ -28,4 +28,4 @@ Route::put('/update-event', [EventController::class, 'updateEvent'])->name('upda
 
 
 // calling external api(s)
-Route::get('/posts', [EventController::class, 'getAllPost']);
+Route::get('/posts', [EventController::class, 'getAllPost'])->name('posts');
