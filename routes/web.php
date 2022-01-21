@@ -29,4 +29,4 @@ Route::get('/delete-event/{id}', [EventController::class, 'delete']);
 
 
 // calling external api(s)
-Route::get('/posts', [EventController::class, 'getAllPost']);
+Route::get('/posts', [EventController::class, 'getAllPost'])->name('posts');

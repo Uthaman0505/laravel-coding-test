@@ -113,7 +113,7 @@ class EventController extends Controller
     public function getAllPost()
     {
         $response = Http::get('https://jsonplaceholder.typicode.com/posts')->json();
-        return $response;
+        return response()->json($response);
     }
 
     public function delete($id)
