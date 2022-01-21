@@ -29,7 +29,11 @@ class EventController extends Controller
     public function getAnEvent($id)
     {
         $event = Event::find($id);
-        return response()->json($event);
+        if ($event) {
+            return response()->json($event);
+        } else {
+            return "The Event is Not Exits!";
+        }
     }
 
     public function updateAnEvent($id, Request $request)
@@ -87,6 +91,7 @@ class EventController extends Controller
             ];
             Mail::to("uthaman.niutecs007@gmail.com")->send(new EventMail($details));
         }
+        session()->flash('message', "Event created successfully and mailed to your email!");
         return redirect('/');
     }
 
@@ -101,6 +106,7 @@ class EventController extends Controller
         $event = Event::find($request->id);
         $event->name = $request->name;
         $event->save();
+        session()->flash('message', "Event updated successfully!");
         return redirect('/');
     }
 
@@ -114,7 +120,7 @@ class EventController extends Controller
     {
         $event = Event::find($id);
         $event->delete();
-        session()->flash('message', 'Event been deleted!');
+        session()->flash('message', 'Event been deleted successfully!');
         return redirect('/');
     }
 }
