@@ -26,7 +26,11 @@ class EventController extends Controller
     public function getAnEvent($id)
     {
         $event = Event::find($id);
-        return response()->json($event);
+        if ($event) {
+            return response()->json($event);
+        } else {
+            return "The Event is Not Exits!";
+        }
     }
 
     public function updateAnEvent($id, Request $request)
